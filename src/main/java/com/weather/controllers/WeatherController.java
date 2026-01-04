@@ -12,6 +12,9 @@ import org.springframework.web.context.request.NativeWebRequest;
 import java.time.LocalDate;
 import java.util.Optional;
 
+/**
+ * Controller Layer for Weather Data
+ */
 @RestController
 public class WeatherController implements WeatherApi {
     @Override
@@ -30,12 +33,14 @@ public class WeatherController implements WeatherApi {
     }
 
     @Override
-    public ResponseEntity<DailyForecastResponse> weatherForecastDailyGet(Double lat, Double lon, Integer days, String units) {
+    public ResponseEntity<DailyForecastResponse> weatherForecastDailyGet(Double lat, Double lon, Integer days,
+                                                                         String units) {
         return WeatherApi.super.weatherForecastDailyGet(lat, lon, days, units);
     }
 
     @Override
-    public ResponseEntity<HistoricalWeatherResponse> weatherHistoricalGet(Double lat, Double lon, LocalDate startDate, LocalDate endDate, String units) {
+    public ResponseEntity<HistoricalWeatherResponse> weatherHistoricalGet(Double lat, Double lon, LocalDate startDate,
+                                                                          LocalDate endDate, String units) {
         return WeatherApi.super.weatherHistoricalGet(lat, lon, startDate, endDate, units);
     }
 }
