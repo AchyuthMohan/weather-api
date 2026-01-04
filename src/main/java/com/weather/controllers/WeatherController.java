@@ -12,6 +12,9 @@ import org.springframework.web.context.request.NativeWebRequest;
 import java.time.LocalDate;
 import java.util.Optional;
 
+/**
+ * Controller Layer for Weather Data
+ */
 @RestController
 public class WeatherController implements WeatherApi {
     @Override
