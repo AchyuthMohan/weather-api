@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+
+    <!-- Fail build on violations -->
+    <property name="severity" value="error"/>
+
+    <!-- Ignore generated code -->
+    <module name="SuppressionFilter">
+        <property name="file" value="src/main/resources/checkstyle-suppressions.xml"/>
+    </module>
+
+    <!-- File-based checks -->
+    <module name="FileTabCharacter"/>
+    <module name="NewlineAtEndOfFile"/>
+
+    <!-- MUST be directly under Checker -->
+    <module name="LineLength">
+        <property name="max" value="120"/>
+        <property name="ignorePattern"
+                  value="^package|^import|http(s)?://"/>
+    </module>
+
+    <!-- AST-based checks -->
+    <module name="TreeWalker">
+
+        <!-- Naming -->
+        <module name="PackageName"/>
+        <module name="TypeName"/>
+        <module name="MethodName"/>
+        <module name="ParameterName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+
+        <!-- Imports -->
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
+
+        <!-- Code style -->
+        <module name="Indentation"/>
+        <module name="NeedBraces"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+
+        <module name="JavadocMethod">
+            <property name="allowMissingParamTags" value="true"/>
+            <property name="allowMissingReturnTag" value="true"/>
+        </module>
+
+        <!-- Common bugs -->
+        <module name="EqualsHashCode"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="FallThrough"/>
+        <module name="EmptyBlock"/>
+
+        <!-- Complexity -->
+        <module name="CyclomaticComplexity">
+            <property name="max" value="10"/>
+        </module>
+
+    </module>
+</module>
